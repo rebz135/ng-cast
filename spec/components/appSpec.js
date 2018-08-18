@@ -58,7 +58,6 @@ describe('app', function() {
   });
 
   it('should load live data when the app is initialized', function() {
-    // debugger
     console.log(fakeVideoData);
     expect(element.isolateScope().$ctrl.videos).to.equal(fakeVideoData);
     expect(element.isolateScope().$ctrl.currentVideo).to.equal(fakeVideoData[0]);
