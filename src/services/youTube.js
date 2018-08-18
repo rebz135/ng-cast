@@ -20,6 +20,5 @@ angular.module('video-player')
       }, function errorCallback(response) {
         console.log(response);
       });
-      
     };
   });
