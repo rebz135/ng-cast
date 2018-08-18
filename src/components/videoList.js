@@ -4,9 +4,6 @@ angular.module('video-player')
       videos: '<',
       onClick: '<'
     },
-    controller: function() {
-      
-    },
 
     template: `
       <ul class="video-list">

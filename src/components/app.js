@@ -4,33 +4,27 @@ angular.module('video-player')
     controller: function(youTube) {
       this.init = function() {
         this.searchResults();
-        // this.videos = fakeVideoData;
-      };
-      
-      this.changeVideos = (newVideos) => {
-        // console.log(newVideos) 
-        this.videos = newVideos;
-        this.currentVideo = this.videos[0]; // refactor???
       };
       
       this.searchResults = (q) => {
-        youTube.search(q, this.changeVideos.bind(this));
+        let changeVideos = function(newVideos) {
+          this.videos = newVideos;
+          this.currentVideo = this.videos[0]; // refactor???
+        }.bind(this);
+        
+        youTube.search(q, changeVideos);
       };
-      
-      this.videos = window.exampleVideoData;
-      
-      this.currentVideo = this.videos[0];
       
       this.selectVideo = function(video) {
-        this.currentVideo = video; 
-      };
+        this.currentVideo = video;
+      }.bind(this);
     },
   
     template: `
       <div id="app container" ng-init="$ctrl.init()">
         <nav class="navbar">
           <div class="col-md-6 col-md-offset-3">
-            <search results="$ctrl.searchResults"><h5><em>search</em> component goes here</h5></search>
+            <search result="$ctrl.searchResults"><h5><em>search</em> component goes here</h5></search>
           </div>
         </nav>
         <div class="row">

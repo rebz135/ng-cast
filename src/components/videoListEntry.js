@@ -1,8 +1,5 @@
 angular.module('video-player')
   .component('videoListEntry', {
-    controller: function() {
-      // debugger
-    },
     bindings: {
       video: '<',
       onClick: '<'
