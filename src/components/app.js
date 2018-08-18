@@ -16,14 +16,11 @@ angular.module('video-player')
       this.searchResults = () => {
       };
 
-      this.currentVideo = {};
-
       this.videos = window.exampleVideoData;
+      this.currentVideo = this.videos[0];
       
       this.onClick = function(video) {
         this.currentVideo = video;
-        console.log(this.currentVideo);
-        debugger;
         
       };
     },
@@ -37,7 +34,7 @@ angular.module('video-player')
         </nav>
         <div class="row">
           <div class="col-md-7">
-            <video-player current="$ctrl.currentVideo"><h5><em>videoPlayer</em> component goes here</h5></video-player>
+            <video-player video="$ctrl.currentVideo"><h5><em>videoPlayer</em> component goes here</h5></video-player>
           </div>
           <div class="col-md-5">
             <video-list on-click="$ctrl.onClick" videos="$ctrl.videos"><h5><em>videoList</em> component goes here</h5></video-list>
